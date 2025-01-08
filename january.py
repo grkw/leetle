@@ -38,3 +38,22 @@ def valid_parens(s):
     else:
       pass
   return not stack # Stack should be empty at the end because all openers should have closers
+
+# 8. Two Sum
+def two_sum(nums, target):
+  if len(nums) < 2: return []
+  for idx in range(len(nums)):
+    diff = target - nums[idx]
+    for jdx in range(idx+1, len(nums)):
+      if nums[jdx] == diff:
+        return [idx, jdx]
+  return []
+
+def two_sum_hash(nums, target):
+  if len(nums) < 2: return []
+  seen = {} # Empty dictionary
+  for idx, num in enumerate(nums):
+    if target - num in seen:
+      return [seen[target - num], idx]
+    seen[num] = idx
+  return [] 
