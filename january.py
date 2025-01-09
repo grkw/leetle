@@ -57,3 +57,14 @@ def two_sum_hash(nums, target):
       return [seen[target - num], idx]
     seen[num] = idx
   return [] 
+
+# 9. Sliding Window Maximum
+def sliding_window_max(nums, k):
+  if k < 1 or k > len(nums):
+    return []
+  max_list = []
+  for idx in range(len(nums)-k):
+    window = nums[idx:idx+k]
+    max_num = max(window)
+    max_list.append(max_num)
+  return max_list
